@@ -38,7 +38,7 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="{{ $titleBtn }}">
-                <a href="{{back()}}" class="btn btn-info">Volver al Listado</a> //TODO: Corregirlo
+                <a href="{{ route('products') }}" class="btn btn-info">Volver al Listado</a>
 
             </form>
         </div>
