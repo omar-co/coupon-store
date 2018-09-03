@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cupones()
+    {
+        return $this->hasMany(Cupones::class);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Products', 'histories', 'user_id', 'product_id');
+    }
 }

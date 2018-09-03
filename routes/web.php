@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Rutas para Productos *** SOLO ADMIN ***
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'products'], function (){
     //Route::resource('products', 'ProductsController');
     Route::get('/', 'ProductsController@index')->name('products');
@@ -26,7 +27,13 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'products'], functi
     Route::delete('/{products}/destroy', 'ProductsController@destroy')->name('products.destroy');
     Route::post('/store', 'ProductsController@store')->name('products.store');
 });
-
+// Rutas para Cupones *** SOLO ADMIN ***
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'cupones'], function (){
     Route::resource('cupones', 'CuponesController');
+});
+
+// Rutas para Perfil de usuario *** USUARIO y ADMIN ***
+Route::group(['middleware' => ['auth']], function (){
+    Route::get('/perfil', 'UserController@profile')->name('user.profile');
+    Route::post('/cupones/redimir', 'CuponesController@redimir')->name('cupones.redimir');
 });

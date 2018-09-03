@@ -23,7 +23,7 @@
                                 <div class="float-right">
                                     @auth
                                         @if(!Auth::user()->admin)
-                                    <a href="" class="btn btn-primary btn-sm">Comprar</a>
+                                    <button href="" class="btn btn-primary btn-sm"{{ (auth()->user()->points >= $product->points ?: 'disabled') }}>Comprar</button>
                                         @endif
                                     @endauth
                                     @if(Auth::user()->admin)
