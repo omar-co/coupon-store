@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'products'], function (){
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'products'], function (){
     //Route::resource('products', 'ProductsController');
     Route::get('/', 'ProductsController@index')->name('products');
     Route::get('/create', 'ProductsController@create')->name('products.create');
@@ -25,4 +25,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'products'], function (){
     Route::put('/{products}/update', 'ProductsController@update')->name('products.update');
     Route::delete('/{products}/destroy', 'ProductsController@destroy')->name('products.destroy');
     Route::post('/store', 'ProductsController@store')->name('products.store');
+});
+
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'cupones'], function (){
+    Route::resource('cupones', 'CuponesController');
 });

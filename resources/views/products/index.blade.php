@@ -21,7 +21,11 @@
                             Puntos: {{ $product->points }}
                             @auth
                                 <div class="float-right">
+                                    @auth
+                                        @if(!Auth::user()->admin)
                                     <a href="" class="btn btn-primary btn-sm">Comprar</a>
+                                        @endif
+                                    @endauth
                                     @if(Auth::user()->admin)
                                         <a href="{{ route('products.edit',['products' => $product->id]) }}" class="btn btn-secondary btn-sm">Editar</a>
                                         <form action="{{ route('products.destroy', ['prodducts' => $product->id]) }}" method="POST" class="float-right">

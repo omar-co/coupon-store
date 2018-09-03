@@ -110,6 +110,6 @@ class ProductsController extends Controller
     {
         $products->delete();
 
-        return back()->with('message', ['success', 'Producto eliminado correctamente']);
+        return back()->with('message', ['success', 'Producto actualizado correctamente']);
     }
 }
