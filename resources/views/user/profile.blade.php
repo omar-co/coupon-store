@@ -32,10 +32,10 @@
             </div>
 
 
-            <div class="col-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="card">
                     <div class="card-header">Mis Cupones Redimidos</div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table">
                             <thead>
                             <th>Cupón</th>
@@ -62,11 +62,11 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="card">
                     <div class="card-header">Mis Productos</div>
-                    <div class="card-body">
-                        <table class="table">
+                    <div class="card-body table-responsive">
+                        <table class="table ">
                             <thead>
                             <th>Nombre</th>
                             <th>Puntos</th>
