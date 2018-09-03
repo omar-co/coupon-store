@@ -13,11 +13,14 @@ Historial de Compras
 
 Usuario Admin:
 
-admin@email.com
+`admin@email.com`
 
 Usuario User:
 
-user@email.com
+`user@email.com`
 
-La contraseña para los dos usuarios es: password
+La contraseña para los dos usuarios es: `password`
+
+
+Los ejercicios de queries SQL vienen en: `\ranking.aql`
 
