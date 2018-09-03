@@ -23,15 +23,23 @@
                                 <div class="float-right">
                                     @auth
                                         @if(!Auth::user()->admin)
-                                    <button href="" class="btn btn-primary btn-sm"{{ (auth()->user()->points >= $product->points ?: 'disabled') }}>Comprar</button>
+                                            <form action="{{ route('history.buy', ['product' => $product->id]) }}"
+                                                  method="post">
+                                                @csrf
+                                                @method('POST')
+                                                <input type="submit" class="btn btn-primary btn-sm"
+                                                       {{ (auth()->user()->points >= $product->points ?: 'disabled') }} value="Comprar">
+                                            </form>
                                         @endif
                                     @endauth
                                     @if(Auth::user()->admin)
-                                        <a href="{{ route('products.edit',['products' => $product->id]) }}" class="btn btn-secondary btn-sm">Editar</a>
-                                        <form action="{{ route('products.destroy', ['prodducts' => $product->id]) }}" method="POST" class="float-right">
+                                        <a href="{{ route('products.edit',['products' => $product->id]) }}"
+                                           class="btn btn-secondary btn-sm">Editar</a>
+                                        <form action="{{ route('products.destroy', ['prodducts' => $product->id]) }}"
+                                              method="POST" class="float-right">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="submit" class="btn btn-danger btn-sm" value="Eliminar" />
+                                            <input type="submit" class="btn btn-danger btn-sm" value="Eliminar"/>
                                         </form>
                                     @endif
                                 </div>

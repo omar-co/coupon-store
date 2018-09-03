@@ -12,9 +12,7 @@ class History extends Model
     {
         parent::boot();
         self::saving(function ($history){
-           if (! \App\runningInConsole()){
-               $history->user_id = auth()->id();
-           }
+            $history->user_id = auth()->id();
         });
     }
 }

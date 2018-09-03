@@ -32,8 +32,9 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'cupones'], functio
     Route::resource('cupones', 'CuponesController');
 });
 
-// Rutas para Perfil de usuario *** USUARIO y ADMIN ***
+// Rutas para usuario *** USUARIO y ADMIN ***
 Route::group(['middleware' => ['auth']], function (){
     Route::get('/perfil', 'UserController@profile')->name('user.profile');
     Route::post('/cupones/redimir', 'CuponesController@redimir')->name('cupones.redimir');
+    Route::post('/comprar/{product}', 'HistoryController@buy')->name('history.buy');
 });

@@ -6,7 +6,6 @@ use App\Cupones;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Mockery\Exception;
 
 class CuponesController extends Controller
 {
@@ -124,10 +123,9 @@ class CuponesController extends Controller
                 Log::notice($e->getMessage());
                 $message = ['error', 'Error al redimir el cupón'];
             }
-
-            return back()->with('message', $message);
-
-
+        } else {
+            $message = ['danger', 'El cupón no existe o ya fue redimido'];
         }
+        return back()->with('message', $message);
     }
 }
